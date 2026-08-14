@@ -12,12 +12,10 @@ The prototype demonstrates a concrete flow where a merchant can type or speak a 
 
 ---
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d1637e3e-6ce3-4c7b-bebe-16985d0772b0" /
-       alt=Pakka Hisaab Logo
+  <img src="https://github.com/user-attachments/assets/d1637e3e-6ce3-4c7b-bebe-16985d0772b0"
+       alt="Pakka Hisaab Logo"
        width="140">
 </p>
-
-
 
 ---
 
