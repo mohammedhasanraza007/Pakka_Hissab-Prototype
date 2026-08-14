@@ -6,6 +6,19 @@ The prototype demonstrates a concrete flow where a merchant can type or speak a 
 
 > **Prototype limits:** product and cart data are synthetic, payments are simulated, QR codes are demo-only, and no real money is moved.
 
+[![Python 3.11.9](https://img.shields.io/badge/python-3.11.9-blue.svg)](https://www.python.org/downloads/release/python-3119/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Platform: Windows](https://img.shields.io/badge/platform-Windows-lightgrey.svg)]()
+
+---
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d1637e3e-6ce3-4c7b-bebe-16985d0772b0" /
+       alt=Pakka Hisaab Logo
+       width="140">
+</p>
+
+
+
 ---
 
 ## ⚠️ Windows — Start Here
