@@ -1,1 +1,0 @@
-"""Pakka Hisaab backend package."""
