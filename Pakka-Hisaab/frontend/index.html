@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <title>Pakka Hisaab · Intent-driven POS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link rel="stylesheet" href="/static/payments.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand"><div class="brand-mark">PH</div><div><div class="brand-name">PAKKA HISAAB</div><div class="brand-sub">Intent-driven merchant POS</div></div></div>
+        <div class="top-actions"><label class="language-control"><span>LANGUAGE</span><select id="languageSelect"><option value="English">English</option><option value="Hindi">हिन्दी · Hindi</option><option value="Tamil">தமிழ் · Tamil</option></select></label><button class="button button-dark" id="judgeButton">JUDGE MODE <span>↗</span></button></div>
+      </header>
+
+      <main>
+        <section class="hero-grid">
+          <div><div class="eyebrow"><span class="live-dot"></span> LOCAL PROTOTYPE · DEMO PAYMENTS ONLY</div><h1>Tell the merchant system<br /><em>what to do.</em></h1><p class="hero-copy">Pakka Hisaab turns a merchant instruction into a structured action, runs the POS workflow, and shows the real state change.</p><div class="hero-proof"><span>INTENT</span><b>→</b><span>ACTION</span><b>→</b><span>STATE CHANGE</span></div></div>
+          <div class="onboarding" id="onboarding"><div class="mini-label">TRY THE DEMO</div><h3>One instruction. One complete workflow.</h3><ol><li>Open Judge Mode or use the command center.</li><li>Try <strong>“Clear Cart 1 with UPI.”</strong></li><li>Simulate payment and watch inventory update.</li></ol><button class="text-button" id="dismissOnboarding">Got it <span>→</span></button></div>
+        </section>
+
+        <section class="metrics" id="metrics"></section>
+
+        <section class="command-card panel"><div class="section-heading"><div><div class="eyebrow mint">COMMAND CENTER</div><h2>What should happen next?</h2><p>Type or speak a merchant instruction. The intent layer only interprets; the workflow engine controls state.</p></div><div class="voice-status" id="voiceStatus"><span class="status-dot"></span><span id="voiceStatusText">Voice ready</span></div></div><div class="command-row"><button class="mic-button" id="micButton" title="Start voice command"><span class="mic-icon">●</span><span>SPEAK</span></button><input id="commandInput" type="text" placeholder="Tell Pakka Hisaab what to do…" autocomplete="off" /><button class="button button-mint" id="executeButton">EXECUTE <span>↗</span></button></div><div class="suggestions"><span>TRY:</span><button data-command="Clear Cart 1 with UPI.">Clear Cart 1 with UPI</button><button data-command="Show Cart 2.">Show Cart 2</button><button data-command="How many biscuits are left?">Check biscuit stock</button><button data-command="Switch to Tamil.">Switch to Tamil</button><button data-command="Reset the demo.">Reset demo</button></div></section>
+
+        <section class="two-col"><div class="panel understanding"><div class="section-heading compact"><div><div class="eyebrow mint">YOU SAID</div><div class="transcript" id="transcript">“Clear Cart 1 with UPI.”</div></div><span class="mode-pill" id="inputMode">TEXT INPUT</span></div><div class="divider"></div><div class="eyebrow mint">UNDERSTOOD AS</div><div class="intent-result" id="intentResult"><div class="intent-main"><span class="intent-icon">⌁</span><div><strong>CHECKOUT_CART</strong><small>Deterministic workflow command</small></div></div><div class="intent-fields"><div><span>CART</span><b id="intentCart">1</b></div><div><span>PAYMENT</span><b id="intentPayment">UPI</b></div></div></div><div class="result-message" id="resultMessage"></div></div><div class="panel workflow-panel"><div class="eyebrow mint">WORKFLOW</div><h2>Instruction → reconciliation</h2><p class="helper">Watch the command become a real application state change.</p><div class="workflow-track" id="workflowTrack"><div class="flow-step active"><span>01</span><b>Intent</b><small>interpreted</small></div><i>→</i><div class="flow-step"><span>02</span><b>Cart</b><small>loaded</small></div><i>→</i><div class="flow-step"><span>03</span><b>Order</b><small>created</small></div><i>→</i><div class="flow-step"><span>04</span><b>Payment</b><small>simulated</small></div><i>→</i><div class="flow-step"><span>05</span><b>Inventory</b><small>protected</small></div></div><div class="workflow-note" id="workflowNote">Ready for a merchant instruction.</div></div></section>
+
+        <section class="two-col lower"><div class="panel carts-panel"><div class="panel-title"><div><div class="eyebrow mint">ACTIVE CARTS</div><h2>Live order queue</h2></div><span class="database-badge">● SQLITE</span></div><div class="cart-list" id="cartList"></div></div><div class="panel payment-panel" id="paymentPanel"><div class="eyebrow mint">PAYMENT & RECONCILIATION</div><h2 id="paymentTitle">No payment in progress</h2><p class="helper" id="paymentHelper">Run a checkout command to create a demo payment. No real money is moved.</p><div id="paymentContent" class="empty-payment"><div class="qr-placeholder">⌁</div><span>DEMO PAYMENT STATE WILL APPEAR HERE</span></div></div></section>
+
+        <section class="two-col lower"><div class="panel inventory-panel"><div class="panel-title"><div><div class="eyebrow mint">INVENTORY</div><h2>Database-backed stock</h2></div><span class="helper">Source of truth</span></div><div class="inventory-list" id="inventoryList"></div></div><div class="panel audit-panel"><div class="panel-title"><div><div class="eyebrow mint">EVENT TIMELINE</div><h2>What just changed?</h2></div><span class="helper">Audit log</span></div><div class="audit-list" id="auditList"></div></div></section>
+      </main>
+      <footer><span>PAKKA HISAAB · LOCAL SQLITE SOURCE OF TRUTH</span><span>HACKATHON PROTOTYPE · NO REAL PAYMENTS</span></footer>
+    </div>
+    <div class="toast" id="toast"></div>
+    <div class="judge-overlay hidden" id="judgeOverlay"><div class="judge-modal panel"><button class="close-button" id="closeJudge">×</button><div class="eyebrow mint">GUIDED DEMONSTRATION</div><h2>60-second judge demo</h2><p>See how one merchant instruction becomes a complete POS workflow.</p><div class="judge-steps"><div><span>01</span><b>Give an instruction</b><small>Type or speak naturally</small></div><div><span>02</span><b>Intent is interpreted</b><small>Structured, explainable command</small></div><div><span>03</span><b>Workflow executes</b><small>SQLite-backed state changes</small></div><div><span>04</span><b>Payment is simulated</b><small>Clearly marked demo QR</small></div><div><span>05</span><b>Inventory is updated</b><small>Only after payment confirmation</small></div></div><div class="judge-example"><div><span class="eyebrow mint">TRY THIS FIRST</span><strong>“Clear Cart 1 with UPI.”</strong><button class="button button-mint" id="useExample">USE EXAMPLE</button></div></div></div></div>
+    <script src="/static/app.js?v=20260814-1122"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+fastapi==0.115.12
+uvicorn[standard]==0.34.0
+pydantic==2.11.3
+qrcode[pil]==8.0
+edge-tts==7.2.7
+pytest==8.3.5
